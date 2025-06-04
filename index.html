@@ -13,6 +13,25 @@
       line-height: 1.6;
     }
 
+    nav {
+      background-color: #b86b4b;
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffe2c7;
+    }
+
     header {
       background-color: #e4cfa3;
       color: #2d2d2d;
@@ -73,18 +92,26 @@
   </style>
 </head>
 <body>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <header>
     <h1>Jorden Plaines</h1>
-    <p>Aspiring Cybersecurity Analyst | Security+ (In Progress) | eJPT Trainee</p>
+    <p>Aspiring Cybersecurity Analyst | Security+ (In Progress) </p>
   </header>
 
   <div class="container">
-    <section>
+    <section id="about">
       <h2>About Me</h2>
       <p>Welcome to my digital home. I'm Jorden, building a future in cybersecurity with a focus on ethical hacking, systems defense, and AI security. I’m passionate about creating safe digital environments and sharing that journey with others.</p>
     </section>
 
-    <section>
+    <section id="projects">
       <h2>Projects</h2>
       <ul>
         <li><strong>Vulnerability Scanning Lab</strong> – Discovering and remediating system vulnerabilities with tools like Nmap and Nessus</li>
@@ -93,17 +120,18 @@
       </ul>
     </section>
 
-    <section>
+    <section id="resume">
       <h2>Resume</h2>
       <a href="resume.pdf" class="button" download>Download My Resume</a>
     </section>
 
-    <section>
+    <section id="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:jorden@plaines.tech">jorden@plaines.tech</a></p>
       <p>GitHub: <a href="https://github.com/jplaines" target="_blank">github.com/jplaines</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/jorden-plaines" target="_blank">linkedin.com/in/jorden-plaines</a></p>
     </section>
   </div>
+
 </body>
 </html>
