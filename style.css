@@ -2,19 +2,99 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Nunito:wght@400;700&display=swap');
 
+html {
+  background: linear-gradient(45deg, #FFF5F0 0%, #FFE4D6 20%, #FFFFFF 40%, #FFEBE0 60%, #FFF8F5 80%, #FFE4D6 100%);
+  background-size: 600% 600%;
+  animation: gradientShift 25s ease-in-out infinite;
+  min-height: 100vh;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', 'Arial', sans-serif;
-  background: #fff;
+  font-family: 'Segoe UI', 'Inter', 'Arial', sans-serif;
+  background: linear-gradient(45deg, #FFF5F0 0%, #FFE4D6 20%, #FFFFFF 40%, #FFEBE0 60%, #FFF8F5 80%, #FFE4D6 100%);
+  background-size: 600% 600%;
+  animation: gradientShift 25s ease-in-out infinite;
   color: #231F20;
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background-attachment: fixed;
+}
+
+/* Animated gradient background */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Ambient edge glow */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 184, 140, 0.15) 0%, rgba(167, 199, 231, 0.1) 30%, transparent 70%);
+  filter: blur(120px);
+  animation: ambientGlow 25s ease-in-out infinite;
+  z-index: -2;
+  pointer-events: none;
+}
+
+@keyframes ambientGlow {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.1;
+  }
+  50% {
+    transform: scale(1.1) rotate(180deg);
+    opacity: 0.2;
+  }
+}
+
+/* Mouse follow glow - desktop only */
+.mouse-glow {
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(255, 200, 150, 0.5) 0%, rgba(255, 220, 180, 0.3) 40%, rgba(255, 235, 210, 0.2) 70%, transparent 85%) !important;
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+@media (min-width: 769px) {
+  .mouse-glow {
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .mouse-glow {
+    display: none !important;
+  }
 }
 
 header {
   text-align: center;
   margin-top: 3rem;
   margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
 }
 header h1 {
   font-size: 2.8rem;
@@ -32,14 +112,15 @@ header p {
 .container {
   max-width: 600px;
   margin: 0 auto;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 18px;
-  box-shadow: 0 4px 32px rgba(41,60,98,0.08);
   padding: 2.5rem 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 h2 {
-  color: #FE9A02;
+  color: #293C62;
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1.2rem;
@@ -67,49 +148,52 @@ h2 {
 }
 
 /* Dropdown styles for nav */
-nav {
-  background: #293C62;
+nav.main-nav {
+  background: transparent;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   height: 70px;
-  box-shadow: 0 2px 8px rgba(41,60,98,0.05);
   padding-left: 2rem;
+  position: relative;
+  z-index: 100;
 }
-nav a, .dropbtn {
-  color: #fff;
+nav.main-nav a, .dropbtn {
+  color: #293C62;
   text-decoration: none;
   font-weight: 700;
   font-size: 1.2rem;
   letter-spacing: 1px;
   padding: 0.5rem 2rem;
-  border-radius: 6px 6px 0 0;
+  border-radius: 6px;
   background: none;
   border: none;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s, text-decoration 0.2s;
   display: inline-block;
   margin: 0;
 }
-nav a:hover, .dropbtn:hover, .dropdown:hover .dropbtn {
-  background: #FE9A02;
-  color: #fff;
+nav.main-nav a:hover, .dropbtn:hover, .dropdown:hover .dropbtn {
+  background: rgba(41, 60, 98, 0.1);
+  color: #1e2a47;
+  text-decoration: underline;
 }
 .dropdown {
   position: relative;
   display: inline-block;
+}
+.dropdown:hover .dropbtn {
+  border-radius: 6px 6px 0 0;
 }
 .dropdown-content {
   display: none;
   position: absolute;
   left: 0;
   top: 100%;
-  background: #fff;
+  background: transparent;
   min-width: 220px;
-  box-shadow: 0 8px 16px rgba(41,60,98,0.10);
-  border-radius: 0 0 8px 8px;
   z-index: 10;
-  padding: 0.5rem 0;
+  padding: 0;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s ease;
@@ -127,60 +211,243 @@ nav a:hover, .dropbtn:hover, .dropdown:hover .dropbtn {
   display: block;
   font-size: 1.1rem;
   font-weight: 600;
-  background: none;
-  border-radius: 0;
-  transition: background 0.2s, color 0.2s;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 0 6px 6px 0;
+  margin: 0;
+  transition: background 0.2s, color 0.2s, text-decoration 0.2s;
 }
 .dropdown-content a:hover {
-  background: #FE9A02;
+  background: rgba(255, 255, 255, 0.95);
+  color: #1e2a47;
+  text-decoration: underline;
+}
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 1.5rem;
+  z-index: 200;
+}
+.menu-toggle .hamburger {
+  display: block;
+  width: 28px;
+  height: 4px;
+  margin: 5px 0;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+/* Side menu styles */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: -2px 0 16px rgba(41,60,98,0.10);
+  z-index: 9999;
+  transition: right 0.3s cubic-bezier(0.4,0,0.2,1);
+  display: none;
+  flex-direction: column;
+  padding-top: 2rem;
+  font-family: 'Segoe UI', 'Inter', 'Arial', sans-serif;
+}
+.side-menu.open {
+  right: 0;
+}
+.side-menu .close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #293C62;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+.side-menu a, .side-menu .side-dropdown > span {
+  color: #293C62;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  transition: background 0.2s, color 0.2s, text-decoration 0.2s;
+}
+.side-menu a:hover, .side-menu .side-dropdown > span:hover {
+  background: #293C62;
   color: #fff;
+  text-decoration: underline;
+}
+.side-dropdown {
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+.side-sub {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-left: 1rem;
+}
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.25);
+  z-index: 9998;
+  transition: opacity 0.3s;
+}
+.overlay.open {
+  display: block;
+  opacity: 1;
+}
+@media (max-width: 900px) {
+  nav.main-nav {
+    padding-left: 1rem;
+    height: 60px;
+  }
+  nav.main-nav a, .dropbtn {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+}
+@media (max-width: 700px) {
+  nav.main-nav {
+    padding-left: 0.5rem;
+    height: 54px;
+  }
+  nav.main-nav a, .dropbtn {
+    font-size: 0.98rem;
+    padding: 0.5rem 0.7rem;
+  }
+  .dropdown-content {
+    min-width: 160px;
+  }
+}
+@media (max-width: 600px) {
+  nav.main-nav a, .dropbtn, .dropdown {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .side-menu {
+    display: flex;
+    width: 250px;
+    font-size: 1.1rem;
+  }
 }
 
 .button {
   display: inline-block;
   padding: 0.75em 1.5em;
-  background: linear-gradient(90deg, #6DD5FA, #FFB88C);
-  color: #fff;
+  background: linear-gradient(135deg, #293C62 0%, #1e2a47 100%);
+  color: #fff !important;
   border: none;
   border-radius: 12px;
   font-size: 1.1rem;
   font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(58,141,255,0.10), 0 1.5px 8px rgba(255,184,140,0.10);
+  box-shadow: 0 4px 16px rgba(41,60,98,0.20), 0 1.5px 8px rgba(30,42,71,0.15);
   transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
   outline: none;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.20);
+  text-decoration: none !important;
 }
 
-.button:hover {
-  background: linear-gradient(90deg, #FFB88C, #6DD5FA);
-  color: #fff;
+.button:hover, .button:focus, .button:active, .button:visited {
+  background: linear-gradient(135deg, #1e2a47 0%, #293C62 100%) !important;
+  color: #fff !important;
   transform: translateY(-3px) scale(1.04);
-  box-shadow: 0 8px 24px rgba(255,184,140,0.15), 0 2px 12px rgba(58,141,255,0.10);
-  text-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 24px rgba(41,60,98,0.25), 0 2px 12px rgba(30,42,71,0.20);
+  text-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  text-decoration: none !important;
 }
 
 section {
   margin: 2rem auto;
   max-width: 900px;
-  background: rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.45);
   border-radius: 24px;
-  box-shadow: 0 4px 32px rgba(167,199,231,0.10);
   padding: 2.5rem 2rem;
-  transition: box-shadow 0.2s;
+  transition: background 0.2s;
+  position: relative;
+  z-index: 1;
 }
 
 section:hover {
-  box-shadow: 0 8px 40px rgba(58,141,255,0.10);
+  background: rgba(255,255,255,0.55);
 }
 
 section:nth-child(even) {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 section a {
+  color: #293C62 !important;
+  text-decoration: underline !important;
   transition: all 0.2s ease-in-out;
 }
+
+section a:hover, section a:focus, section a:active, section a:visited {
+  color: #1e2a47 !important;
+  text-decoration: underline !important;
+  background: transparent !important;
+}
+
+/* Fix white flashing on specific problematic elements */
+a.button, a.button:hover, a.button:focus, a.button:active, a.button:visited {
+  background: linear-gradient(135deg, #293C62 0%, #1e2a47 100%) !important;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+a.button:hover, a.button:focus, a.button:active {
+  background: linear-gradient(135deg, #1e2a47 0%, #293C62 100%) !important;
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(41,60,98,0.25), 0 2px 12px rgba(30,42,71,0.20);
+}
+
+button[type="submit"], input[type="submit"] {
+  background: linear-gradient(135deg, #293C62 0%, #1e2a47 100%) !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+button[type="submit"]:hover, button[type="submit"]:focus, button[type="submit"]:active,
+input[type="submit"]:hover, input[type="submit"]:focus, input[type="submit"]:active {
+  background: linear-gradient(135deg, #1e2a47 0%, #293C62 100%) !important;
+  color: #fff !important;
+}
+
+/* Targeted fix for white flashing - only on problematic elements */
+nav.main-nav a:hover, nav.main-nav a:focus, nav.main-nav a:active {
+  background: rgba(41, 60, 98, 0.1) !important;
+}
+
+.dropbtn:hover, .dropbtn:focus, .dropbtn:active {
+  background: rgba(41, 60, 98, 0.1) !important;
+}
+
+/* Ensure mouse glow works */
+.mouse-glow {
+  background: radial-gradient(circle, rgba(255, 200, 150, 0.5) 0%, rgba(255, 220, 180, 0.3) 40%, rgba(255, 235, 210, 0.2) 70%, transparent 85%) !important;
+  z-index: 0 !important;
+}
+
+
+
+
 
 @media (max-width: 600px) {
   section {
