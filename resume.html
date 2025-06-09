@@ -29,9 +29,11 @@
   <aside class="side-menu" id="sideMenu">
     <button class="close-btn" id="closeMenu" aria-label="Close menu">&times;</button>
     <a href="index.html">Home</a>
-    <div class="side-dropdown">
-      <a href="projects.html">Projects</a>
-      <a href="ad-lab.html" class="side-sub">Active Directory Lab</a>
+    <div class="side-dropdown" id="mobileProjectsDropdown">
+      <a href="projects.html" id="mobileProjectsToggle">Projects</a>
+      <div class="side-dropdown-content">
+        <a href="ad-lab.html">Active Directory Lab</a>
+      </div>
     </div>
     <a href="resume.html">Resume</a>
     <a href="contact.html">Contact</a>

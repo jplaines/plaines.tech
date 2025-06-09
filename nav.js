@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const sideMenu = document.getElementById('sideMenu');
   const closeMenu = document.getElementById('closeMenu');
   const overlay = document.getElementById('menuOverlay');
+  const mobileProjectsToggle = document.getElementById('mobileProjectsToggle');
+  const mobileProjectsDropdown = document.getElementById('mobileProjectsDropdown');
 
   function openMenu() {
     if (sideMenu) {
@@ -28,6 +30,19 @@ document.addEventListener('DOMContentLoaded', function () {
       overlay.classList.remove('open');
     }
     document.body.style.overflow = '';
+    
+    // Close mobile dropdown when closing side menu
+    if (mobileProjectsDropdown) {
+      mobileProjectsDropdown.classList.remove('open');
+    }
+  }
+  function toggleMobileProjectsDropdown(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (mobileProjectsDropdown) {
+      mobileProjectsDropdown.classList.toggle('open');
+    }
   }
   if (menuToggle) {
     menuToggle.addEventListener('click', openMenu);
@@ -38,10 +53,27 @@ document.addEventListener('DOMContentLoaded', function () {
   if (overlay) {
     overlay.addEventListener('click', closeSideMenu);
   }
-  // Close menu when clicking a link in the side menu
+  // Mobile Projects dropdown toggle
+  if (mobileProjectsToggle) {
+    mobileProjectsToggle.addEventListener('click', toggleMobileProjectsDropdown);
+  }
+  // Close menu when clicking a direct link in the side menu (but not dropdown toggle)
   if (sideMenu) {
     sideMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeSideMenu);
+      // Don't close menu when clicking the Projects toggle
+      if (link.id !== 'mobileProjectsToggle') {
+        link.addEventListener('click', closeSideMenu);
+      }
+    });
+  }
+  // Close dropdown when clicking outside of it within the side menu
+  if (sideMenu) {
+    sideMenu.addEventListener('click', function(e) {
+      if (mobileProjectsDropdown && 
+          !mobileProjectsDropdown.contains(e.target) && 
+          mobileProjectsDropdown.classList.contains('open')) {
+        mobileProjectsDropdown.classList.remove('open');
+      }
     });
   }
 }); 
