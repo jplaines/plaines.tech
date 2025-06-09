@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Jorden Plaines</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <button class="dropbtn">Projects</button>
+      <div class="dropdown-content">
+        <a href="ad-lab.html">Active Directory Lab</a>
+      </div>
+    </div>
+    <a href="resume.html">Resume</a>
+    <a href="contact.html" style="background:#FE9A02; color:#fff;">Contact</a>
+  </nav>
+  <header>
+    <h1>Contact Me</h1>
+    <p>Let's connect! Reach out with questions, opportunities, or just to say hi.</p>
+  </header>
+  <div class="container" style="max-width: 500px;">
+    <section id="contact-card" style="text-align:center;">
+      <h2>Get in Touch</h2>
+      <p>Email: <a href="mailto:jordenplaines@gmail.com">jorden@plaines.tech</a></p>
+      <form style="margin-top:2rem; text-align:left;">
+        <label for="name" style="font-weight:700;">Name</label><br>
+        <input type="text" id="name" name="name" required style="width:100%;padding:0.7em;margin-bottom:1em;border-radius:8px;border:1px solid #eee;font-size:1rem;">
+        <br>
+        <label for="email" style="font-weight:700;">Email</label><br>
+        <input type="email" id="email" name="email" required style="width:100%;padding:0.7em;margin-bottom:1em;border-radius:8px;border:1px solid #eee;font-size:1rem;">
+        <br>
+        <label for="message" style="font-weight:700;">Message</label><br>
+        <textarea id="message" name="message" rows="5" required style="width:100%;padding:0.7em;margin-bottom:1.5em;border-radius:8px;border:1px solid #eee;font-size:1rem;"></textarea>
+        <br>
+        <button type="submit" class="button" style="width:100%;">Send Message</button>
+      </form>
+      <p style="font-size:0.95em;color:#888;margin-top:1em;">This form is for demonstration only and does not send messages.</p>
+    </section>
+  </div>
+</body>
+</html> 

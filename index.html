@@ -5,112 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jorden Plaines | Cybersecurity Portfolio</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fdf6f0;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    nav {
-      background-color: #b86b4b;
-      display: flex;
-      justify-content: center;
-      padding: 1rem 0;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #ffe2c7;
-    }
-
-    header {
-      background-color: #e4cfa3;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-
-    header h1,
-    header p {
-      color: #2d2d2d;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      margin: 0;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-      text-align: center;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    h2 {
-      border-bottom: 2px solid #e4cfa3;
-      padding-bottom: 0.3rem;
-      margin-bottom: 1rem;
-      color: #2d2d2d;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    a {
-      color: #b86b4b;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .button {
-      display: inline-block;
-      background-color: #b86b4b;
-      color: white;
-      padding: 0.6rem 1.2rem;
-      margin-top: 1rem;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
-    }
-
-    .button:hover {
-      background-color: #a35f42;
-    }
-  </style>
 </head>
 <body>
-
   <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#resume">Resume</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <button class="dropbtn">Projects</button>
+      <div class="dropdown-content">
+        <a href="ad-lab.html">Active Directory Lab</a>
+      </div>
+    </div>
+    <a href="resume.html">Resume</a>
+    <a href="contact.html">Contact</a>
   </nav>
-
   <header>
     <h1>Jorden Plaines</h1>
     <p>Aspiring Cybersecurity Analyst</p>
   </header>
-
   <div class="container">
     <section id="about">
       <h2>About Me</h2>
@@ -118,29 +29,9 @@
         I'm Jorden, a cybersecurity learner on a mission to break into the field with real skills and real projects. I'm studying for my Security+ certification while building hands-on labs that go beyond theory, like setting up a full Active Directory environment with Windows Server and Windows 11.
       </p>
       <p>
-        I’m especially drawn to the intersection of cybersecurity and AI — automating threat detection, building smarter defenses, and one day, launching tools that make security more accessible and proactive. This site is where I document the journey, show the work, and stay accountable as I build my career one lab at a time.
+        I'm especially drawn to the intersection of cybersecurity and AI — automating threat detection, building smarter defenses, and one day, launching tools that make security more accessible and proactive. This site is where I document the journey, show the work, and stay accountable as I build my career one lab at a time.
       </p>
     </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul>
-        <li><strong>Active Directory Lab</strong> – Building a Windows Server domain controller and joining Windows 11 clients to practice user/group management, DNS, GPOs, and real-world IT infrastructure setups.</li>
-      </ul>
-    </section>
-
-    <section id="resume">
-      <h2>Resume</h2>
-      <a href="resume.pdf" class="button" download>Download My Resume</a>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:jorden@plaines.tech">jorden@plaines.tech</a></p>
-      <p>GitHub: <a href="https://github.com/jplaines" target="_blank">github.com/jplaines</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/jorden-plaines" target="_blank">linkedin.com/in/jorden-plaines</a></p>
-    </section>
   </div>
-
 </body>
 </html>
