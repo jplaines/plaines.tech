@@ -3,11 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Comprehensive Active Directory Lab by Jorden Plaines - Step-by-step Windows Server 2022 domain controller setup, user management, Group Policy configuration, and enterprise security implementation.">
   <title>Active Directory Lab | Jorden Plaines</title>
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .container {
+      max-width: 800px;
+    }
+    
+    .step-content {
+      margin-bottom: 2rem;
+    }
+    
+    .step-content .process {
+      margin-bottom: 1rem;
+    }
+    
+    .step-content .purpose {
+      margin-bottom: 1.5rem;
+    }
+    
+    .back-button {
+      display: block;
+      margin: 3rem auto 0 auto;
+      text-align: center;
+      padding: 0.75em 1.5em;
+      background: #293C62;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 700;
+      transition: background 0.2s;
+      width: fit-content;
+    }
+    
+    .back-button:hover {
+      background: #1e2a47;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
   <nav class="main-nav">
@@ -39,48 +76,336 @@
     <a href="contact.html">Contact</a>
   </aside>
   <div class="overlay" id="menuOverlay"></div>
+
   <header>
     <h1>Active Directory Lab</h1>
-    <p>A Hands-on Windows Server & Client Environment</p>
+    <p>A comprehensive hands-on lab environment demonstrating Active Directory setup, configuration, and management in a Windows Server environment. This project showcases enterprise-level directory services implementation and security best practices.</p>
   </header>
+  
   <div class="container">
     <h2>Project Description</h2>
-    <p>
-      This project involved setting up a complete Active Directory environment using Windows Server 2022 as the domain controller and Windows 11 as client machines. The lab provides hands-on experience with enterprise-level IT infrastructure, including user management, group policies, DNS configuration, and network security.
-    </p>
+    <p>This Active Directory lab project demonstrates the setup and configuration of a complete Windows Server environment with Active Directory Domain Services. The lab environment simulates a real-world enterprise network infrastructure, providing hands-on experience with domain controllers, user management, group policies, and network security.</p>
     
-    <h2>Step-by-Step Process</h2>
-    <ol>
-      <li>Set up Windows Server 2022 virtual machine with recommended specifications</li>
-      <li>Configure network settings and static IP addressing</li>
-      <li>Install and configure Active Directory Domain Services (AD DS)</li>
-      <li>Create and organize Organizational Units (OUs)</li>
-      <li>Implement user and group management policies</li>
-      <li>Configure Group Policy Objects (GPOs) for security and user experience</li>
-      <li>Set up Windows 11 client machines and join them to the domain</li>
-      <li>Test user authentication and policy enforcement</li>
-      <li>Implement basic security measures and access controls</li>
-      <li>Document the entire setup process and configuration details</li>
-    </ol>
-    
-    <h2>Post-Project Summary</h2>
-    <p>
-      This lab provided invaluable hands-on experience with enterprise IT infrastructure. Key takeaways include:
-    </p>
+    <p>The project encompasses the full lifecycle of Active Directory implementation, from initial server setup through advanced configuration and security hardening. This comprehensive approach provides practical experience with enterprise directory services that are fundamental to modern IT infrastructure.</p>
+
+    <h3>Objectives</h3>
     <ul>
-      <li>Understanding of Active Directory architecture and components</li>
-      <li>Experience with user and group management in an enterprise environment</li>
-      <li>Knowledge of Group Policy implementation and management</li>
-      <li>Familiarity with Windows Server administration tasks</li>
-      <li>Understanding of basic network security principles</li>
+      <li>Deploy and configure Windows Server with Active Directory Domain Services</li>
+      <li>Implement domain controller functionality and DNS integration</li>
+      <li>Create and manage organizational units, users, and groups</li>
+      <li>Configure Group Policy Objects for centralized management</li>
+      <li>Establish secure network communication and authentication</li>
+      <li>Implement security best practices and access controls</li>
     </ul>
+
+    <h3>Platforms and Tools Used</h3>
+    <ul>
+      <li>VMware Workstation Pro - Virtualization platform</li>
+      <li>Windows Server 2019/2022 - Domain controller operating system</li>
+      <li>Windows 10/11 - Client workstation operating systems</li>
+      <li>Active Directory Domain Services - Directory services role</li>
+      <li>DNS Server - Name resolution services</li>
+      <li>Group Policy Management Console - Policy configuration tool</li>
+      <li>PowerShell - Automation and management scripting</li>
+    </ul>
+
+    <h2>Step-by-Step Process</h2>
+
+    <h3>Step 1: Prepped for Domain Controller</h3>
+    <div class="step-content">
+      <div class="process">
+        <p><strong>Process:</strong> Deployed a Windows Server 2022 VM using UTM on a MacBook Pro. Installed the OS and completed the basic configuration. Performed initial server updates and renamed the machine to DC1 to act as the primary domain controller.</p>
+      </div>
+      <figure style="text-align: center;">
+        <img 
+          src="images/ad-lab/01_rename_to_DC1.png" 
+          alt="Renaming Windows Server to DC1" 
+          style="width: 100%; max-width: 450px; height: auto; border-radius: 8px; margin: 1rem auto 2rem auto; display: block;" 
+        />
+        <figcaption style="font-size: 0.95rem; color: #666; margin-top: 0.5rem;">
+          Renaming Windows Server to DC1 for domain controller role
+        </figcaption>
+      </figure>
+      <div class="purpose">
+        <p><strong>Purpose:</strong> Renaming the server gives us a clear hostname that reflects its role in the network. Leaving the server with a default name can make network management and troubleshooting a hassle.</p>
+      </div>
+    </div>
+
+    <h3>Step 2: Configure Static IP Address on DC1</h3>
+    <div class="step-content">
+      <div class="process">
+        <p><strong>Process:</strong> Configured a static IP and DNS address via the server's network adapter settings to ensure consistent domain resolution. Set the DNS to point to the server's own IP for internal name resolution.</p>
+      </div>
+      <figure style="text-align: center;">
+        <img 
+          src="images/ad-lab/02_static_ip_config.png" 
+          alt="Static IP address configuration" 
+          style="width: 100%; max-width: 450px; height: auto; border-radius: 8px; margin: 1rem auto;" 
+        />
+        <figcaption style="font-size: 0.95rem; color: #666; margin-top: 0.5rem;">
+          Static IP and DNS configuration on DC1
+        </figcaption>
+      </figure>
+
+      <figure style="text-align: center;">
+        <img 
+          src="images/ad-lab/02_static_test.png" 
+          alt="Ping test confirming network connectivity" 
+          style="width: 100%; max-width: 450px; height: auto; border-radius: 8px; margin: 1.5rem auto 2rem auto;" 
+        />
+        <figcaption style="font-size: 0.95rem; color: #666; margin-top: 0.5rem;">
+          Ping test results verifying gateway and internet connection
+        </figcaption>
+      </figure>
+      <div class="purpose">
+        <p><strong>Purpose:</strong> A Domain controller must have a fixed IP address to reliably provide services like DNS and Active Directory. Here, I manually set a static IP based on my current network range. A ping test was used to confirm the IP and gateway worked correctly.</p>
+      </div>
+    </div>
+
+    <h3>Step 3: Install Active Directory Domain Services (AD DS)</h3>
+    <div class="step-content">
+      <div class="process">
+        <p><strong>Process:</strong> Installed the Active Directory Domain Services role on the server in preparation for domain controller promotion.</p>
+      </div>
+      <figure style="text-align: center;">
+        <img 
+          src="images/ad-lab/03_add_ad_ds_roles.png" 
+          alt="Installing Active Directory Domain Services role" 
+          style="width: 100%; max-width: 450px; height: auto; border-radius: 8px; margin: 1rem auto 2rem auto; display: block;" 
+        />
+        <figcaption style="font-size: 0.95rem; color: #666; margin-top: 0.5rem;">
+          Adding Active Directory Domain Services role through Server Manager
+        </figcaption>
+      </figure>
+      <div class="purpose">
+        <p><strong>Purpose:</strong> AD DS is required for creating and managing domains, users, security groups, and other policies. This prepares DC1 to be the first domain controller in my lab network.</p>
+      </div>
+    </div>
+
+    <h3>Step 4: Promote Server to Domain Controller</h3>
+    <div class="step-content">
+      <div class="process">
+        <p><strong>Process:</strong> Promoted the server to a domain controller for the newly created forest plaines.local. Set a Directory Services Restore Mode (DSRM) password and rebooted to complete configuration.</p>
+      </div>
+      <figure style="text-align: center;">
+        <img 
+          src="images/ad-lab/04_promote_to_DC.png" 
+          alt="Domain controller promotion configuration" 
+          style="width: 100%; max-width: 450px; height: auto; border-radius: 8px; margin: 1rem auto;" 
+        />
+        <figcaption style="font-size: 0.95rem; color: #666; margin-top: 0.5rem;">
+          Configuring domain controller promotion for plaines.local forest
+        </figcaption>
+      </figure>
+
+      <figure style="text-align: center;">
+        <img 
+          src="images/ad-lab/04_installing_DC.PNG" 
+          alt="Domain controller installation progress" 
+          style="width: 100%; max-width: 450px; height: auto; border-radius: 8px; margin: 1.5rem auto 2rem auto;" 
+        />
+        <figcaption style="font-size: 0.95rem; color: #666; margin-top: 0.5rem;">
+          Domain controller installation and configuration in progress
+        </figcaption>
+      </figure>
+      <div class="purpose">
+        <p><strong>Purpose:</strong> This step promoted DC1 to an actual domain controller and created the plaines.local AD forest. It also installed and configured the DNS, Global Catalog, and directory partitions.</p>
+      </div>
+    </div>
+
+    <h3>Step 5: Create OU - LabUsers</h3>
+    <div class="step-content">
+      <div class="process">
+        <p><strong>Process:</strong> Created an Organizational Unit (OU) named LabUsers to logically separate users and devices. Moved the Lab User machine into the appropriate OU.</p>
+      </div>
+      <figure style="text-align: center;">
+        <img 
+          src="images/ad-lab/05_OU_creation.png" 
+          alt="Creating LabUsers Organizational Unit" 
+          style="width: 100%; max-width: 450px; height: auto; border-radius: 8px; margin: 1rem auto 2rem auto; display: block;" 
+        />
+        <figcaption style="font-size: 0.95rem; color: #666; margin-top: 0.5rem;">
+          Creating the LabUsers OU in Active Directory Users and Computers
+        </figcaption>
+      </figure>
+      <div class="purpose">
+        <p><strong>Purpose:</strong> OUs provide structure in Active Directory. They allow for more granular management of users, computers, and policies. This OU was created to isolate all lab client machines for testing.</p>
+      </div>
+    </div>
+
+    <h3>Step 6: Create Domain User</h3>
+    <div class="step-content">
+      <div class="process">
+        <p><strong>Process:</strong> Created a standard domain user (Lab User) in Active Directory Users and Computers (ADUC) to simulate a non-privileged user. This account was used for later policy enforcement testing.</p>
+      </div>
+      <figure style="text-align: center;">
+        <img 
+          src="images/ad-lab/06_create_user.png" 
+          alt="Creating domain user in Active Directory" 
+          style="width: 100%; max-width: 450px; height: auto; border-radius: 8px; margin: 1rem auto 2rem auto; display: block;" 
+        />
+        <figcaption style="font-size: 0.95rem; color: #666; margin-top: 0.5rem;">
+          Creating Lab User account in Active Directory Users and Computers
+        </figcaption>
+      </figure>
+      <div class="purpose">
+        <p><strong>Purpose:</strong> Creating a test domain user allows us to validate domain join and user-level permissions from a Windows 11 client system.</p>
+      </div>
+    </div>
+
+    <h3>Step 7: Join Client to Domain & Log In</h3>
+    <div class="step-content">
+      <div class="process">
+        <p><strong>Process:</strong> On a Windows 11 VM running in Parallels (Mac Mini), configured a static IP and DNS, renamed the computer, and joined it to the plaines.local domain. Restarted and verified domain connectivity.</p>
+      </div>
+      <figure style="text-align: center;">
+        <img 
+          src="images/ad-lab/07_join_domain.png" 
+          alt="Joining Windows 11 client to domain" 
+          style="width: 100%; max-width: 450px; height: auto; border-radius: 8px; margin: 1rem auto 2rem auto; display: block;" 
+        />
+        <figcaption style="font-size: 0.95rem; color: #666; margin-top: 0.5rem;">
+          Joining Windows 11 client to the plaines.local domain
+        </figcaption>
+      </figure>
+      <div class="purpose">
+        <p><strong>Purpose:</strong> The goal was to enable the client to communicate with the DC and become a domain-joined device, allowing centralized management through Active Directory.</p>
+      </div>
+    </div>
+
+    <h3>Step 8: Move Domain-Joined Client to LabUsers OU</h3>
+    <div class="step-content">
+      <div class="process">
+        <p><strong>Process:</strong> Moved the Windows 11 client into the LabUsers OU in preparation for Group Policy application.</p>
+      </div>
+      <figure style="text-align: center;">
+        <img 
+          src="images/ad-lab/08_move_to_OU.png" 
+          alt="Moving client computer to LabUsers OU" 
+          style="width: 100%; max-width: 450px; height: auto; border-radius: 8px; margin: 1rem auto 2rem auto; display: block;" 
+        />
+        <figcaption style="font-size: 0.95rem; color: #666; margin-top: 0.5rem;">
+          Moving domain-joined client to the LabUsers OU
+        </figcaption>
+      </figure>
+      <div class="purpose">
+        <p><strong>Purpose:</strong> Organizing client machines under the appropriate OU allows for scoped GPO application targeting specific sets of machines.</p>
+      </div>
+      <div class="applied-policies">
+        <h4 style="margin-top: 1rem; color: #293C62; text-align: center;">Applied Security Policies:</h4>
+        <ul style="margin-top: 0.5rem; font-size: 1rem;">
+          <li style="font-size: 1rem;"><strong>Control Panel and PC Settings Access Disabled:</strong> Restricts users from modifying system configurations or personalization options.</li>
+          <li style="font-size: 1rem;"><strong>Registry Editing Tools Access Blocked:</strong> Prevents unauthorized alterations to critical registry settings.<br><em>Silent execution of regedit is specifically disabled: Enabled.</em></li>
+          <li style="font-size: 1rem;"><strong>Command Prompt Access Restricted:</strong> Blocks users from running commands that could impact system stability or security.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Step 9: Create and Link a GPO to the LabUsers OU</h3>
+    <div class="step-content">
+      <div class="process">
+        <p><strong>Process:</strong> Used Group Policy Management Console (GPMC) to create a GPO titled "LabUsers - Basic Restrictions" and linked it to the LabUsers OU to begin applying user-based policies.</p>
+      </div>
+      <figure style="text-align: center;">
+        <img 
+          src="images/ad-lab/09_new_GPO.png" 
+          alt="Creating new Group Policy Object" 
+          style="width: 100%; max-width: 450px; height: auto; border-radius: 8px; margin: 1rem auto 2rem auto; display: block;" 
+        />
+        <figcaption style="font-size: 0.95rem; color: #666; margin-top: 0.5rem;">
+          Creating "LabUsers - Basic Restrictions" GPO in Group Policy Management Console
+        </figcaption>
+      </figure>
+      <div class="purpose">
+        <p><strong>Purpose:</strong> Linking the GPO allows custom restrictions to apply to standard domain users. This step enforces basic security policies such as disabling access to the Control Panel, Command Prompt, and registry tools.</p>
+      </div>
+    </div>
+
+    <h3>Step 10: Configure LabUsers GPO</h3>
+    <div class="step-content">
+      <div class="process">
+        <p><strong>Process:</strong> Edited the GPO to disable access to the Control Panel, Registry Editor, and Command Prompt under User Configuration > Administrative Templates. Verified GPO application by logging in as Lab User.</p>
+      </div>
+      <figure style="text-align: center;">
+        <img 
+          src="images/ad-lab/10_GP_config_OU.png" 
+          alt="Configuring Group Policy restrictions" 
+          style="width: 100%; max-width: 450px; height: auto; border-radius: 8px; margin: 1rem auto 2rem auto; display: block;" 
+        />
+        <figcaption style="font-size: 0.95rem; color: #666; margin-top: 0.5rem;">
+          Configuring user restrictions in the LabUsers GPO
+        </figcaption>
+      </figure>
+      <div class="purpose">
+        <p><strong>Purpose:</strong> These restrictions enforce a locked-down environment for standard users. Policies such as disabling regedit, CMD, and Control Panel reflect real-world enterprise policy enforcement.</p>
+      </div>
+    </div>
+
+    <h3>Step 11: Test GPO Enforcement</h3>
+    <div class="step-content">
+      <div class="process">
+        <p><strong>Process:</strong> Logged into the domain-joined client as Lab User and tested the GPO configuration. Verified that access to the Control Panel, Registry Editor, and Command Prompt was restricted as intended.</p>
+      </div>
+      <figure style="text-align: center;">
+        <img 
+          src="images/ad-lab/11_test_GPO.png" 
+          alt="Testing Group Policy enforcement" 
+          style="width: 100%; max-width: 450px; height: auto; border-radius: 8px; margin: 1rem auto 2rem auto; display: block;" 
+        />
+        <figcaption style="font-size: 0.95rem; color: #666; margin-top: 0.5rem;">
+          Testing GPO restrictions - Control Panel access blocked for Lab User
+        </figcaption>
+      </figure>
+      <div class="purpose">
+        <p><strong>Purpose:</strong> Validates that the "LabUsers - Basic Restrictions" GPO is successfully applied to standard domain users and enforces intended security policies.</p>
+      </div>
+    </div>
+
+    <h2>Post-Project Summary</h2>
+
+    <h3>Key Takeaways</h3>
+    <ul>
+      <li>Active Directory is the backbone of Windows enterprise environments, providing centralized authentication and authorization services</li>
+      <li>Proper planning and design of the OU structure is crucial for scalable and manageable Active Directory implementation</li>
+      <li>DNS integration is critical for Active Directory functionality and must be properly configured and maintained</li>
+      <li>Group Policy provides powerful centralized management capabilities but requires careful planning to avoid conflicts</li>
+      <li>Security best practices should be implemented from the beginning, including proper delegation and least privilege principles</li>
+    </ul>
+
+    <h3>Troubleshooting Highlights</h3>
+    <ul>
+      <li>Resolved DNS resolution issues that prevented successful domain controller promotion</li>
+      <li>Addressed time synchronization problems between domain controller and client machines</li>
+      <li>Fixed Group Policy application issues by understanding inheritance and precedence rules</li>
+      <li>Troubleshot domain join failures related to network connectivity and DNS configuration</li>
+      <li>Resolved authentication issues by verifying proper service account configurations</li>
+    </ul>
+
+    <h3>Next Steps</h3>
+    <ul>
+      <li>Implement additional domain controllers for redundancy and load distribution</li>
+      <li>Configure Active Directory Certificate Services for PKI implementation</li>
+      <li>Set up Active Directory Federation Services for single sign-on capabilities</li>
+      <li>Implement advanced security features such as Protected Users group and Authentication Policies</li>
+      <li>Explore PowerShell automation for Active Directory management tasks</li>
+      <li>Study Active Directory disaster recovery and backup strategies</li>
+    </ul>
+
+    <h3>Final Reflection</h3>
+    <p>This Active Directory lab project provided comprehensive hands-on experience with enterprise directory services implementation. The project demonstrated the complexity and importance of proper planning in Active Directory deployments, from initial design through ongoing management.</p>
     
-    <h2>Full Documentation</h2>
-    <p>
-      For a detailed walkthrough of the entire project, including screenshots, configuration details, and troubleshooting steps, you can download the complete documentation:
+    <p>The experience highlighted the interconnected nature of various Windows Server services and the critical role that Active Directory plays in modern IT infrastructure. Understanding these concepts is essential for any IT professional working in Windows-based enterprise environments.</p>
+
+    <p style="text-align: center; font-size: 0.85rem; color: #777; margin-top: 3rem;">
+      Note: All IP addresses shown in this lab are from a private testing environment and are not publicly accessible.
     </p>
-    <a href="docs/AD_Lab_Full.pdf" class="button" download>Download Full Documentation</a>
+    
+    <a href="docs/ad-lab/Full AD Lab.pdf" download class="back-button" style="margin-bottom: 1rem;">
+      📄 Download Full Project Documentation (PDF)
+    </a>
+    <a href="projects.html" class="back-button">← Back to Projects</a>
   </div>
+
   <script src="nav.js"></script>
   <script src="glow.js"></script>
 </body>
