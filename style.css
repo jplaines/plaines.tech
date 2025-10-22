@@ -835,6 +835,14 @@ nav.main-nav a:hover, nav.main-nav a:focus, nav.main-nav a:active {
   line-height: 1.5;
 }
 
+/* Sub-step divider for multi-part steps */
+.sub-step-divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #E4CFA3, transparent);
+  margin: 2rem 0;
+}
+
 .learnings-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
