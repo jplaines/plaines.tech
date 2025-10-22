@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Comprehensive Active Directory Lab by Jorden Plaines - Step-by-step Windows Server 2022 domain controller setup, user management, Group Policy configuration, and enterprise security implementation.">
   <title>Active Directory Lab | Jorden Plaines</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=6">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
@@ -53,6 +53,7 @@
       <a href="projects.html" class="dropbtn">Projects</a>
       <div class="dropdown-content">
         <a href="ad-lab.html">Active Directory Lab</a>
+        <a href="vulnerability-scan-lab.html">Vulnerability Scanning Lab</a>
       </div>
     </div>
     <a href="resume.html">Resume</a>
@@ -70,12 +71,38 @@
       <a href="projects.html" id="mobileProjectsToggle">Projects</a>
       <div class="side-dropdown-content">
         <a href="ad-lab.html">Active Directory Lab</a>
+        <a href="vulnerability-scan-lab.html">Vulnerability Scanning Lab</a>
       </div>
     </div>
     <a href="resume.html">Resume</a>
     <a href="contact.html">Contact</a>
   </aside>
   <div class="overlay" id="menuOverlay"></div>
+  
+  <!-- Table of Contents Sidebar -->
+  <aside class="toc-sidebar" id="tocSidebar">
+    <h3>Contents</h3>
+    <ul id="tocList">
+      <li><a href="#description">Project Description</a></li>
+      <li><a href="#steps">Step-by-Step Process</a></li>
+      <li><a href="#step-1">→ Step 1: Prep Domain Controller</a></li>
+      <li><a href="#step-2">→ Step 2: Configure Static IP</a></li>
+      <li><a href="#step-3">→ Step 3: Install AD DS</a></li>
+      <li><a href="#step-4">→ Step 4: Promote to DC</a></li>
+      <li><a href="#step-5">→ Step 5: Create OU</a></li>
+      <li><a href="#step-6">→ Step 6: Create Domain User</a></li>
+      <li><a href="#step-7">→ Step 7: Join Client to Domain</a></li>
+      <li><a href="#step-8">→ Step 8: Move Client to OU</a></li>
+      <li><a href="#step-9">→ Step 9: Create & Link GPO</a></li>
+      <li><a href="#step-10">→ Step 10: Configure GPO</a></li>
+      <li><a href="#step-11">→ Step 11: Test GPO</a></li>
+      <li><a href="#summary">Post-Project Summary</a></li>
+      <li><a href="#documentation">Documentation</a></li>
+    </ul>
+  </aside>
+  
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
   <header>
     <h1>Active Directory Lab</h1>
@@ -83,7 +110,7 @@
   </header>
   
   <div class="container">
-    <h2>Project Description</h2>
+    <h2 id="description">Project Description</h2>
     <p>This Active Directory lab project demonstrates the setup and configuration of a complete Windows Server environment with Active Directory Domain Services. The lab environment simulates a real-world enterprise network infrastructure, providing hands-on experience with domain controllers, user management, group policies, and network security.</p>
     
     <p>The project encompasses the full lifecycle of Active Directory implementation, from initial server setup through advanced configuration and security hardening. This comprehensive approach provides practical experience with enterprise directory services that are fundamental to modern IT infrastructure.</p>
@@ -109,9 +136,9 @@
       <li>PowerShell - Automation and management scripting</li>
     </ul>
 
-    <h2>Step-by-Step Process</h2>
+    <h2 id="steps">Step-by-Step Process</h2>
 
-    <h3>Step 1: Prepped for Domain Controller</h3>
+    <h3 id="step-1">Step 1: Prepped for Domain Controller</h3>
     <div class="step-content">
       <div class="process">
         <p><strong>Process:</strong> Deployed a Windows Server 2022 VM using UTM on a MacBook Pro. Installed the OS and completed the basic configuration. Performed initial server updates and renamed the machine to DC1 to act as the primary domain controller.</p>
@@ -131,7 +158,7 @@
       </div>
     </div>
 
-    <h3>Step 2: Configure Static IP Address on DC1</h3>
+    <h3 id="step-2">Step 2: Configure Static IP Address on DC1</h3>
     <div class="step-content">
       <div class="process">
         <p><strong>Process:</strong> Configured a static IP and DNS address via the server's network adapter settings to ensure consistent domain resolution. Set the DNS to point to the server's own IP for internal name resolution.</p>
@@ -162,7 +189,7 @@
       </div>
     </div>
 
-    <h3>Step 3: Install Active Directory Domain Services (AD DS)</h3>
+    <h3 id="step-3">Step 3: Install Active Directory Domain Services (AD DS)</h3>
     <div class="step-content">
       <div class="process">
         <p><strong>Process:</strong> Installed the Active Directory Domain Services role on the server in preparation for domain controller promotion.</p>
@@ -182,7 +209,7 @@
       </div>
     </div>
 
-    <h3>Step 4: Promote Server to Domain Controller</h3>
+    <h3 id="step-4">Step 4: Promote Server to Domain Controller</h3>
     <div class="step-content">
       <div class="process">
         <p><strong>Process:</strong> Promoted the server to a domain controller for the newly created forest plaines.local. Set a Directory Services Restore Mode (DSRM) password and rebooted to complete configuration.</p>
@@ -213,7 +240,7 @@
       </div>
     </div>
 
-    <h3>Step 5: Create OU - LabUsers</h3>
+    <h3 id="step-5">Step 5: Create OU - LabUsers</h3>
     <div class="step-content">
       <div class="process">
         <p><strong>Process:</strong> Created an Organizational Unit (OU) named LabUsers to logically separate users and devices. Moved the Lab User machine into the appropriate OU.</p>
@@ -233,7 +260,7 @@
       </div>
     </div>
 
-    <h3>Step 6: Create Domain User</h3>
+    <h3 id="step-6">Step 6: Create Domain User</h3>
     <div class="step-content">
       <div class="process">
         <p><strong>Process:</strong> Created a standard domain user (Lab User) in Active Directory Users and Computers (ADUC) to simulate a non-privileged user. This account was used for later policy enforcement testing.</p>
@@ -253,7 +280,7 @@
       </div>
     </div>
 
-    <h3>Step 7: Join Client to Domain & Log In</h3>
+    <h3 id="step-7">Step 7: Join Client to Domain & Log In</h3>
     <div class="step-content">
       <div class="process">
         <p><strong>Process:</strong> On a Windows 11 VM running in Parallels (Mac Mini), configured a static IP and DNS, renamed the computer, and joined it to the plaines.local domain. Restarted and verified domain connectivity.</p>
@@ -273,7 +300,7 @@
       </div>
     </div>
 
-    <h3>Step 8: Move Domain-Joined Client to LabUsers OU</h3>
+    <h3 id="step-8">Step 8: Move Domain-Joined Client to LabUsers OU</h3>
     <div class="step-content">
       <div class="process">
         <p><strong>Process:</strong> Moved the Windows 11 client into the LabUsers OU in preparation for Group Policy application.</p>
@@ -301,7 +328,7 @@
       </div>
     </div>
 
-    <h3>Step 9: Create and Link a GPO to the LabUsers OU</h3>
+    <h3 id="step-9">Step 9: Create and Link a GPO to the LabUsers OU</h3>
     <div class="step-content">
       <div class="process">
         <p><strong>Process:</strong> Used Group Policy Management Console (GPMC) to create a GPO titled "LabUsers - Basic Restrictions" and linked it to the LabUsers OU to begin applying user-based policies.</p>
@@ -321,7 +348,7 @@
       </div>
     </div>
 
-    <h3>Step 10: Configure LabUsers GPO</h3>
+    <h3 id="step-10">Step 10: Configure LabUsers GPO</h3>
     <div class="step-content">
       <div class="process">
         <p><strong>Process:</strong> Edited the GPO to disable access to the Control Panel, Registry Editor, and Command Prompt under User Configuration > Administrative Templates. Verified GPO application by logging in as Lab User.</p>
@@ -341,7 +368,7 @@
       </div>
     </div>
 
-    <h3>Step 11: Test GPO Enforcement</h3>
+    <h3 id="step-11">Step 11: Test GPO Enforcement</h3>
     <div class="step-content">
       <div class="process">
         <p><strong>Process:</strong> Logged into the domain-joined client as Lab User and tested the GPO configuration. Verified that access to the Control Panel, Registry Editor, and Command Prompt was restricted as intended.</p>
@@ -361,7 +388,7 @@
       </div>
     </div>
 
-    <h2>Post-Project Summary</h2>
+    <h2 id="summary">Post-Project Summary</h2>
 
     <h3>Key Takeaways</h3>
     <ul>
@@ -400,6 +427,7 @@
       Note: All IP addresses shown in this lab are from a private testing environment and are not publicly accessible.
     </p>
     
+    <h2 id="documentation">Documentation</h2>
     <a href="docs/ad-lab/Full AD Lab.pdf" download class="back-button" style="margin-bottom: 1rem;">
       📄 Download Full Project Documentation (PDF)
     </a>
@@ -408,5 +436,75 @@
 
   <script src="nav.js"></script>
   <script src="glow.js"></script>
+  
+  <script>
+    // Back to Top Button functionality
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Table of Contents functionality
+    const tocSidebar = document.getElementById('tocSidebar');
+    const tocLinks = document.querySelectorAll('.toc-sidebar a');
+    const allSections = document.querySelectorAll('[id]');
+    
+    // Show TOC after scrolling past header
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 200) {
+        tocSidebar.classList.add('visible');
+      } else {
+        tocSidebar.classList.remove('visible');
+      }
+      
+      // Highlight active section in TOC
+      let currentSection = '';
+      allSections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.pageYOffset >= (sectionTop - 150)) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+      
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSection) {
+          link.classList.add('active');
+        }
+      });
+    });
+    
+    // Smooth scroll for TOC links
+    tocLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          // Get the absolute position from top of page
+          const elementPosition = targetSection.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - 100;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html> 

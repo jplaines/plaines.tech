@@ -17,6 +17,7 @@
       <a href="projects.html" class="dropbtn">Projects</a>
       <div class="dropdown-content">
         <a href="ad-lab.html">Active Directory Lab</a>
+        <a href="vulnerability-scan-lab.html">Vulnerability Scanning Lab</a>
       </div>
     </div>
     <a href="resume.html">Resume</a>
@@ -34,12 +35,17 @@
       <a href="projects.html" id="mobileProjectsToggle">Projects</a>
       <div class="side-dropdown-content">
         <a href="ad-lab.html">Active Directory Lab</a>
+        <a href="vulnerability-scan-lab.html">Vulnerability Scanning Lab</a>
       </div>
     </div>
     <a href="resume.html">Resume</a>
     <a href="contact.html">Contact</a>
   </aside>
   <div class="overlay" id="menuOverlay"></div>
+  
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+  
   <header>
     <h1>All Projects</h1>
     <p>Explore my hands-on labs and cybersecurity projects. More coming soon!</p>
@@ -53,9 +59,9 @@
     </section>
     <section>
       <div style="text-align: center; margin-bottom: 1rem;">
-        <span class="button" style="display: inline-block; margin: 0 auto; text-align: center; padding: 0.75em 1.5em; opacity:0.6;cursor:not-allowed;">Project 2</span>
+        <a href="vulnerability-scan-lab.html" class="button" style="display: inline-block; margin: 0 auto; text-align: center; padding: 0.75em 1.5em;">Vulnerability Scanning Lab</a>
       </div>
-      <p style="margin:0; text-align: center; color:#888;font-size:0.95em;">Coming soon...</p>
+      <p style="margin:0; text-align: center; color:#58595B;font-size:0.95em;">Network discovery, port scanning, and security hardening with Nmap and Nessus. <em>Complete with 24 step-by-step screenshots</em></p>
     </section>
     <section>
       <div style="text-align: center; margin-bottom: 1rem;">
@@ -66,5 +72,25 @@
   </div>
   <script src="nav.js"></script>
   <script src="glow.js"></script>
+  
+  <script>
+    // Back to Top Button functionality
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
 </body>
 </html> 

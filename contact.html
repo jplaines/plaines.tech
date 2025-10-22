@@ -185,6 +185,7 @@
       <a href="projects.html" class="dropbtn">Projects</a>
       <div class="dropdown-content">
         <a href="ad-lab.html">Active Directory Lab</a>
+        <a href="vulnerability-scan-lab.html">Vulnerability Scanning Lab</a>
       </div>
     </div>
     <a href="resume.html">Resume</a>
@@ -202,12 +203,16 @@
       <a href="projects.html" id="mobileProjectsToggle">Projects</a>
       <div class="side-dropdown-content">
         <a href="ad-lab.html">Active Directory Lab</a>
+        <a href="vulnerability-scan-lab.html">Vulnerability Scanning Lab</a>
       </div>
     </div>
     <a href="resume.html">Resume</a>
     <a href="contact.html">Contact</a>
   </aside>
   <div class="overlay" id="menuOverlay"></div>
+  
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
   <header>
     <h1>Contact Me</h1>
@@ -254,6 +259,26 @@
 
   <script src="nav.js"></script>
   <script src="glow.js"></script>
+  
+  <script>
+    // Back to Top Button functionality
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
   
   <script>
     const form = document.getElementById("contact-form");
