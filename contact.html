@@ -23,7 +23,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contact Jorden Plaines - Connect with an aspiring cybersecurity analyst. Available for networking, collaboration, and cybersecurity opportunities in the San Francisco Bay Area.">
   <title>Contact | Jorden Plaines</title>
-  <link rel="stylesheet" href="style.css?v=16">
+  <link rel="stylesheet" href="style.css?v=18">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
@@ -137,30 +137,8 @@
       min-height: 120px;
     }
 
-    .submit-button {
-      width: 100%;
-      padding: 1rem 2rem;
-      background: #293C62;
-      color: white;
-      border: none;
-      border-radius: 12px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      font-family: 'Segoe UI', 'Inter', 'Arial', sans-serif;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
-      z-index: 2;
-      box-shadow: 0 4px 16px rgba(41, 60, 98, 0.2);
-    }
-
-    .submit-button:hover:not(:disabled) {
-      background: #1e2a47;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(41, 60, 98, 0.3);
-    }
-
-    .submit-button:disabled {
+    /* Submit button now uses btn btn-primary classes - styling handled by main CSS */
+    #submit-btn:disabled {
       opacity: 0.7;
       cursor: not-allowed;
       transform: none;
@@ -237,7 +215,7 @@
       </div>
     </div>
     <a href="index.html" class="nav-logo nav-logo-center">
-      <img src="images/pt-white.png" alt="Plaines Tech Logo" class="pt-logo">
+      <img src="images/plaines.tech-white.png" alt="Plaines Tech" class="nav-full-logo">
     </a>
     <div class="nav-right">
       <a href="services.html">Services</a>
@@ -326,7 +304,7 @@
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-      <button type="submit" id="submit-btn" class="submit-button">Send Message</button>
+      <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; padding: 1rem 2rem; font-size: 1.1rem; font-weight: 700;">Send Message</button>
       <p id="form-status" class="form-status"></p>
     </form>
   </div>

@@ -117,6 +117,13 @@ body::before {
   object-fit: contain;
 }
 
+.nav-full-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
 .pt-brand-name {
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -202,12 +209,19 @@ html body nav.main-nav a.nav-logo-center {
   opacity: 1 !important;
 }
 
+.nav-logo-center .nav-full-logo {
+  height: 56px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
 .nav-logo-center img {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
-  width: 48px !important;
-  height: 48px !important;
 }
 
 nav.main-nav .nav-logo-center img {
@@ -230,12 +244,12 @@ header h1 {
   font-size: 2.8rem;
   font-weight: 800;
   margin: 0;
-  color: #e5e7eb;
+  color: #f9fafb;
   letter-spacing: 2px;
 }
 header p {
   font-size: 1.3rem;
-  color: #58595B;
+  color: #e5e7eb;
   margin-top: 0.5rem;
 }
 
@@ -278,7 +292,7 @@ h2 {
 
 /* Dropdown styles for nav */
 nav.main-nav a, .dropbtn {
-  color: #e5e7eb;
+  color: #f3f4f6;
   text-decoration: none;
   font-weight: 700;
   font-size: 1.2rem;
@@ -294,7 +308,7 @@ nav.main-nav a, .dropbtn {
 }
 nav.main-nav a:hover, .dropbtn:hover, .dropdown:hover .dropbtn {
   background: rgba(41, 60, 98, 0.1);
-  color: #1e2a47;
+  color: #ffffff;
   text-decoration: underline;
 }
 .dropdown {
@@ -324,7 +338,7 @@ nav.main-nav a:hover, .dropbtn:hover, .dropdown:hover .dropbtn {
   pointer-events: auto;
 }
 .dropdown-content a {
-  color: #293C62;
+  color: #f9fafb;
   padding: 0.75rem 1.5rem;
   text-decoration: none;
   display: block;
@@ -337,11 +351,13 @@ nav.main-nav a:hover, .dropbtn:hover, .dropdown:hover .dropbtn {
   margin: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: background 0.2s, color 0.2s, text-decoration 0.2s;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 .dropdown-content a:hover {
-  background: #f5f5f5;
-  color: #1e2a47;
+  background: rgba(255, 255, 255, 0.98);
+  color: #293C62;
   text-decoration: underline;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 .menu-toggle {
   display: none;
@@ -540,24 +556,26 @@ nav.main-nav a:hover, .dropbtn:hover, .dropdown:hover .dropbtn {
 
 .btn-primary {
   background: linear-gradient(135deg, #0ea5e9, #22c55e);
-  color: #020617;
+  color: #f0f9ff !important;
   box-shadow: 0 16px 40px rgba(34, 197, 94, 0.35);
 }
 
 .btn-primary:hover {
   transform: translateY(-1px);
   box-shadow: 0 20px 50px rgba(34, 197, 94, 0.45);
+  color: #ffffff !important;
 }
 
 .btn-ghost {
   background: transparent;
-  color: #e5e7eb;
+  color: #f0f9ff !important;
   border-color: rgba(148, 163, 184, 0.5);
+  transition: border-color 0.2s, color 0.2s;
 }
 
 .btn-ghost:hover {
   border-color: #38bdf8;
-  color: #38bdf8;
+  color: #ffffff !important;
 }
 
 .pt-section {
@@ -615,6 +633,24 @@ nav.main-nav a:hover, .dropbtn:hover, .dropdown:hover .dropbtn {
   margin: 0;
   color: #9ca3af;
   font-size: 0.93rem;
+}
+
+/* Buttons inside cards - lighter text with white hover */
+.card .btn {
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease,
+    border-color 0.12s ease, color 0.2s ease;
+}
+
+.card .btn-primary {
+  background: linear-gradient(135deg, #0ea5e9, #22c55e);
+  color: #f0f9ff !important;
+  box-shadow: 0 16px 40px rgba(34, 197, 94, 0.35);
+}
+
+.card .btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 50px rgba(34, 197, 94, 0.45);
+  color: #ffffff !important;
 }
 
 .project-card .card-link {
@@ -809,6 +845,25 @@ section:nth-child(even) {
   background: transparent;
 }
 
+/* Section paragraphs - lighter text with white hover */
+section p {
+  color: #e5e7eb !important;
+  transition: color 0.2s ease;
+}
+
+section p:hover {
+  color: #ffffff !important;
+}
+
+section p em {
+  color: #d1d5db !important;
+  transition: color 0.2s ease;
+}
+
+section p:hover em {
+  color: #f3f4f6 !important;
+}
+
 section a {
   color: #293C62 !important;
   text-decoration: underline !important;
@@ -835,15 +890,18 @@ a.button:hover, a.button:focus, a.button:active {
 }
 
 button[type="submit"], input[type="submit"] {
-  background: linear-gradient(135deg, #293C62 0%, #1e2a47 100%) !important;
-  color: #fff !important;
+  background: linear-gradient(135deg, #0ea5e9, #22c55e) !important;
+  color: #f0f9ff !important;
   border: none !important;
+  box-shadow: 0 16px 40px rgba(34, 197, 94, 0.35) !important;
 }
 
 button[type="submit"]:hover, button[type="submit"]:focus, button[type="submit"]:active,
 input[type="submit"]:hover, input[type="submit"]:focus, input[type="submit"]:active {
-  background: linear-gradient(135deg, #1e2a47 0%, #293C62 100%) !important;
-  color: #fff !important;
+  background: linear-gradient(135deg, #0ea5e9, #22c55e) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 20px 50px rgba(34, 197, 94, 0.45) !important;
 }
 
 /* Targeted fix for white flashing - only on problematic elements */
@@ -1094,6 +1152,11 @@ nav.main-nav a:hover, nav.main-nav a:focus, nav.main-nav a:active {
     font-size: 1.1rem !important;
   }
   
+  /* Mobile logo adjustments */
+  .nav-full-logo {
+    height: 32px !important;
+  }
+  
   /* 9. Mobile Section Improvements */
   section {
     margin: 1.5rem auto !important;
@@ -1176,10 +1239,10 @@ nav.main-nav a:hover, nav.main-nav a:focus, nav.main-nav a:active {
 .step-section {
   margin: 2rem 0;
   padding: 1.5rem;
-  background: white;
-  border-radius: 12px;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: transparent;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -1192,21 +1255,35 @@ nav.main-nav a:hover, nav.main-nav a:focus, nav.main-nav a:active {
   margin: 0 0 1rem 0;
   font-size: 1.1rem;
   font-weight: 700;
-  color: #B86B4B;
-  border-bottom: 2px solid #E4CFA3;
+  color: #f9fafb;
+  border-bottom: 2px solid rgba(56, 189, 248, 0.4);
   padding-bottom: 0.5rem;
 }
 
 
 .step-item {
-  /* Remove background and border since step-section now provides the card styling */
   padding: 0;
   border-radius: 0;
   border: none;
   box-shadow: none;
   transition: none;
+  color: #e5e7eb;
 }
 
+.step-item p,
+.step-item li,
+.step-details p,
+.step-details li {
+  color: #e5e7eb;
+}
+
+.step-item strong {
+  color: #fefefe;
+}
+
+.step-item .image-caption {
+  color: #cbd5e1;
+}
 
 .step-item img {
   width: 100%;
