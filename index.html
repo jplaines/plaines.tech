@@ -25,23 +25,47 @@
   <meta name="keywords" content="cybersecurity, Active Directory, Windows Server, Security+, IT infrastructure, network security, domain controller, cybersecurity analyst">
   <meta name="author" content="Jorden Plaines">
   <title>Home | Jorden Plaines</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=16">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .pt-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .pt-container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
 </head>
 <body>
   <nav class="main-nav">
-    <a href="index.html" class="nav-logo">Home</a>
-    <div class="dropdown">
-      <a href="projects.html" class="dropbtn">Projects</a>
-      <div class="dropdown-content">
-        <a href="ad-lab.html">Active Directory Lab</a>
-        <a href="vulnerability-scan-lab.html">Vulnerability Scanning Lab</a>
+    <div class="nav-left">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <a href="projects.html" class="dropbtn">Projects</a>
+        <div class="dropdown-content">
+          <a href="ad-lab.html">Active Directory Lab</a>
+          <a href="vulnerability-scan-lab.html">Vulnerability Scanning Lab</a>
+        </div>
       </div>
     </div>
-    <a href="resume.html">Resume</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html" class="nav-logo nav-logo-center">
+      <img src="images/pt-white.png" alt="Plaines Tech Logo" class="pt-logo">
+    </a>
+    <div class="nav-right">
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
     <button class="menu-toggle" aria-label="Open menu">
       <span class="hamburger"></span>
       <span class="hamburger"></span>
@@ -58,7 +82,7 @@
         <a href="vulnerability-scan-lab.html">Vulnerability Scanning Lab</a>
       </div>
     </div>
-    <a href="resume.html">Resume</a>
+    <a href="services.html">Services</a>
     <a href="contact.html">Contact</a>
   </aside>
   <div class="overlay" id="menuOverlay"></div>
@@ -66,19 +90,56 @@
   <!-- Back to Top Button -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
   
-  <header>
-    <h1>Jorden Plaines</h1>
-    <p>Aspiring Cybersecurity Analyst</p>
+  <header class="pt-header-hero simple-hero">
+    <div class="pt-container">
+      <div class="hero-text-centered">
+        <h1>Jorden Plaines</h1>
+        <p class="hero-subtitle-centered">Plaines Tech Founder</p>
+      </div>
+    </div>
   </header>
-  <div class="container">
-    <h2>About Me</h2>
-    <p>
-      I'm Jorden, a cybersecurity learner on a mission to break into the field with real skills and real projects. I'm studying for my Security+ certification while building hands-on labs that go beyond theory, like setting up a full Active Directory environment with Windows Server and Windows 11.
-    </p>
-    <p>
-      I'm drawn to the intersection of cybersecurity and AI, automating threat detection, building smarter defenses, and one day, launching tools that make security more accessible and proactive. This site is where I document the journey, show the work, and stay accountable as I build my career one lab at a time.
-    </p>
-  </div>
+
+  <main>
+    <section class="pt-section about-section-simple">
+      <div class="pt-container about-container-centered">
+        <div class="card about-card-simple">
+          <h2 class="about-title">About Me</h2>
+          <p>
+            I'm Jorden, and I'm breaking into cybersecurity by doing the work—building real environments, testing ideas, and learning through hands-on practice. I'm focused on developing practical skills that translate into real security impact, whether that's understanding systems, improving workflows, or creating better ways to document and automate what I learn.
+          </p>
+          <p>
+            I'm especially interested in how cybersecurity and AI connect, from smarter defenses to more efficient documentation and analysis. Plaines Tech is where I share my progress, publish what I'm learning, and build the foundation of my career one project at a time. This site represents both my personal journey and the early stages of a security-focused brand I'm growing for the future.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pt-section">
+      <div class="pt-container">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 1rem; color: #f9fafb;">What you'll find here</h2>
+        <div class="pt-grid two">
+          <div class="card">
+            <h3>Career & Projects</h3>
+            <p>
+              This site is my home base for documenting what I'm learning in security and tech. You'll find write-ups, security projects, and experiments that show how I approach problems, learn new tools, and grow my skills over time.
+            </p>
+            <div style="margin-top: 1rem;">
+              <a href="projects.html" class="btn btn-primary">View Projects & Labs</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Plaines Tech as a Brand</h3>
+            <p>
+              Plaines Tech is the name I'm building around that work—my LLC and future security brand. Here I'm shaping early service ideas, AI experiments, and practical security workflows that can grow into something bigger over time.
+            </p>
+            <div style="margin-top: 1rem;">
+              <a href="services.html" class="btn btn-primary">View Services</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
   <script src="nav.js"></script>
   <script src="glow.js"></script>
   

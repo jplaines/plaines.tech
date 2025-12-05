@@ -23,7 +23,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contact Jorden Plaines - Connect with an aspiring cybersecurity analyst. Available for networking, collaboration, and cybersecurity opportunities in the San Francisco Bay Area.">
   <title>Contact | Jorden Plaines</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=16">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
@@ -32,10 +32,12 @@
       max-width: 600px;
       margin: 0 auto;
       padding: 2rem;
-      background: rgba(255, 255, 255, 0.3);
+      background: transparent !important;
+      border: none !important;
       border-radius: 18px;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      box-shadow: none !important;
     }
 
     .contact-methods {
@@ -47,19 +49,39 @@
       z-index: 2;
     }
 
+    .contact-links-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    
+    .contact-method h3,
+    .contact-method p {
+      color: #f9fafb;
+    }
+    
+    .contact-method a {
+      color: #38bdf8;
+    }
+
     .contact-method {
       text-align: center;
       padding: 1.5rem;
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.5);
-      transition: transform 0.2s, background 0.2s;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      transition: transform 0.2s;
       position: relative;
       z-index: 2;
     }
 
     .contact-method:hover {
       transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.7);
+      background: transparent !important;
     }
 
     .contact-method svg {
@@ -83,31 +105,31 @@
     .contact-form textarea {
       width: 100%;
       padding: 1rem;
-      border: 2px solid rgba(41, 60, 98, 0.2);
+      border: 2px solid rgba(148, 163, 184, 0.35);
       border-radius: 12px;
       font-size: 1rem;
       font-family: 'Segoe UI', 'Inter', 'Arial', sans-serif;
       transition: all 0.3s ease;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      color: #293C62;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      color: #f9fafb;
       box-sizing: border-box;
     }
 
     .contact-form input::placeholder,
     .contact-form textarea::placeholder {
-      color: rgba(41, 60, 98, 0.6);
+      color: rgba(156, 163, 175, 0.7);
       font-weight: 500;
     }
 
     .contact-form input:focus,
     .contact-form textarea:focus {
       outline: none;
-      border-color: #293C62;
-      background: rgba(255, 255, 255, 0.9);
+      border-color: #38bdf8;
+      background: transparent;
       transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(41, 60, 98, 0.15);
+      box-shadow: 0 4px 16px rgba(56, 189, 248, 0.2);
     }
 
     .contact-form textarea {
@@ -164,7 +186,7 @@
     }
 
     .social-link {
-      color: #293C62;
+      color: #f9fafb;
       text-decoration: none;
       display: flex;
       align-items: center;
@@ -172,15 +194,16 @@
       padding: 0.8rem 1.5rem;
       border-radius: 8px;
       transition: all 0.2s;
-      background: rgba(255, 255, 255, 0.5);
+      background: transparent;
       font-weight: 600;
       position: relative;
       z-index: 2;
     }
 
     .social-link:hover {
-      background: rgba(255, 255, 255, 0.7);
+      background: transparent;
       transform: translateY(-2px);
+      color: #38bdf8;
     }
 
     @media (max-width: 768px) {
@@ -193,21 +216,33 @@
         margin: 1rem;
         padding: 1.5rem;
       }
+      
+      .contact-container > div[style*="grid"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
     }
   </style>
 </head>
 <body>
   <nav class="main-nav">
-    <a href="index.html" class="nav-logo">Home</a>
-    <div class="dropdown">
-      <a href="projects.html" class="dropbtn">Projects</a>
-      <div class="dropdown-content">
-        <a href="ad-lab.html">Active Directory Lab</a>
-        <a href="vulnerability-scan-lab.html">Vulnerability Scanning Lab</a>
+    <div class="nav-left">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <a href="projects.html" class="dropbtn">Projects</a>
+        <div class="dropdown-content">
+          <a href="ad-lab.html">Active Directory Lab</a>
+          <a href="vulnerability-scan-lab.html">Vulnerability Scanning Lab</a>
+        </div>
       </div>
     </div>
-    <a href="resume.html">Resume</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html" class="nav-logo nav-logo-center">
+      <img src="images/pt-white.png" alt="Plaines Tech Logo" class="pt-logo">
+    </a>
+    <div class="nav-right">
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
     <button class="menu-toggle" aria-label="Open menu">
       <span class="hamburger"></span>
       <span class="hamburger"></span>
@@ -224,7 +259,7 @@
         <a href="vulnerability-scan-lab.html">Vulnerability Scanning Lab</a>
       </div>
     </div>
-    <a href="resume.html">Resume</a>
+    <a href="services.html">Services</a>
     <a href="contact.html">Contact</a>
   </aside>
   <div class="overlay" id="menuOverlay"></div>
@@ -233,12 +268,12 @@
   <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
   <header>
-    <h1>Contact Me</h1>
+    <h1>Contact & Next Steps</h1>
     <p>Let's connect! I'm always open to discussing new opportunities and ideas.</p>
   </header>
 
   <div class="contact-container">
-    <div class="social-links">
+    <div class="contact-links-row">
       <a href="https://www.linkedin.com/in/jorden-plaines/" target="_blank" rel="noopener" class="social-link">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -247,6 +282,14 @@
         </svg>
         LinkedIn
       </a>
+      <div class="contact-method">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <h3>Email</h3>
+        <p><a href="mailto:jorden@plaines.tech">jorden@plaines.tech</a></p>
+      </div>
       <a href="https://github.com/jplaines" target="_blank" rel="noopener" class="social-link">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
@@ -255,14 +298,27 @@
       </a>
     </div>
 
-    <div class="contact-methods">
-      <div class="contact-method">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-          <polyline points="22,6 12,13 2,6"></polyline>
-        </svg>
-        <h3>Email</h3>
-        <p><a href="mailto:jorden@plaines.tech">jorden@plaines.tech</a></p>
+    <!-- Two main blocks for jobs and services -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 3rem 0;">
+      <div class="card" style="padding: 2rem;">
+        <h3 style="color: #f9fafb; margin-top: 0; margin-bottom: 1rem; font-size: 1.3rem;">Career & Portfolio</h3>
+        <p style="color: #9ca3af; margin-bottom: 1.5rem; line-height: 1.6;">
+          This side of the site is about my work as a security / IT professional. You can review my projects, read through write-ups, and check out my resume to see how I learn, document, and approach real problems.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <a href="projects.html" class="btn btn-primary" style="text-align: center;">View Projects & Labs</a>
+          <a href="docs/Jorden P Resume.pdf" class="btn btn-ghost" style="text-align: center;" download>Download Resume (PDF)</a>
+        </div>
+      </div>
+      <div class="card" style="padding: 2rem;">
+        <h3 style="color: #f9fafb; margin-top: 0; margin-bottom: 1rem; font-size: 1.3rem;">Plaines Tech Services</h3>
+        <p style="color: #9ca3af; margin-bottom: 1.5rem; line-height: 1.6;">
+          Plaines Tech is where I experiment with offering practical security services—things like documentation, process clean-up, and AI-assisted workflows. If you want to explore ideas or a potential project, start with the services page.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <a href="services.html" class="btn btn-primary" style="text-align: center;">View Services</a>
+          <a href="mailto:jorden@plaines.tech" class="btn btn-ghost" style="text-align: center;">Get in Touch</a>
+        </div>
       </div>
     </div>
 
