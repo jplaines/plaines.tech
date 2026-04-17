@@ -1,77 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X56RSZQ50G"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-X56RSZQ50G');
-  </script>
-  
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "tu92oxiuc2");
-  </script>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Jorden Plaines - Aspiring Cybersecurity Analyst. Explore my hands-on Active Directory labs, Security+ certification journey, and cybersecurity projects combining traditional security with AI automation.">
-  <meta name="keywords" content="cybersecurity, Active Directory, Windows Server, Security+, IT infrastructure, network security, domain controller, cybersecurity analyst">
+  <meta name="description" content="Jorden Plaines - cybersecurity-focused IT professional building hands-on labs, documenting real projects, and preparing for Security+ while moving toward analyst roles.">
+  <meta name="keywords" content="Jorden Plaines, cybersecurity portfolio, IT support, Security+, Active Directory, home lab, cybersecurity analyst">
   <meta name="author" content="Jorden Plaines">
-  <title>Home | Jorden Plaines</title>
-  <link rel="stylesheet" href="style.css?v=17">
+  <title>Jorden Plaines | Cybersecurity & IT Portfolio</title>
+  <link rel="stylesheet" href="style.css?v=4">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
-    .pt-section {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-    .pt-container {
-      margin-left: auto;
-      margin-right: auto;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav class="main-nav">
-    <div class="nav-left">
-      <a href="index.html">Home</a>
-      <div class="dropdown">
-        <a href="projects.html" class="dropbtn">Projects</a>
-        <div class="dropdown-content">
-          <a href="ad-lab.html">Active Directory Lab</a>
-          <a href="vulnerability-scan-lab.html">Vulnerability Scanning Lab</a>
-        </div>
+    <a href="index.html" class="nav-logo active">JP</a>
+    <div class="dropdown">
+      <a href="projects.html" class="dropbtn">Projects</a>
+      <div class="dropdown-content">
+        <a href="ad-lab.html">Active Directory Lab</a>
+        <a href="vulnerability-scan-lab.html">Vulnerability Scanning Lab</a>
       </div>
     </div>
-    <a href="index.html" class="nav-logo nav-logo-center">
-      <img src="images/plaines.tech-white.png" alt="Plaines Tech" class="nav-full-logo">
-    </a>
-    <div class="nav-right">
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
-    </div>
+    <a href="resume.html">Resume</a>
+    <a href="contact.html">Contact</a>
     <button class="menu-toggle" aria-label="Open menu">
       <span class="hamburger"></span>
       <span class="hamburger"></span>
       <span class="hamburger"></span>
     </button>
   </nav>
+
   <aside class="side-menu" id="sideMenu">
     <button class="close-btn" id="closeMenu" aria-label="Close menu">&times;</button>
     <a href="index.html">Home</a>
@@ -82,85 +41,150 @@
         <a href="vulnerability-scan-lab.html">Vulnerability Scanning Lab</a>
       </div>
     </div>
-    <a href="services.html">Services</a>
+    <a href="resume.html">Resume</a>
     <a href="contact.html">Contact</a>
   </aside>
   <div class="overlay" id="menuOverlay"></div>
-  
-  <!-- Back to Top Button -->
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
-  
-  <header class="pt-header-hero simple-hero">
-    <div class="pt-container">
-      <div class="hero-text-centered">
-        <h1>Jorden Plaines</h1>
-        <p class="hero-subtitle-centered">Plaines Tech Founder</p>
-      </div>
+
+  <header>
+    <div class="hero">
+      <section class="hero-card">
+        <span class="eyebrow">Cybersecurity · IT Operations · Hands-on Learning</span>
+        <h1>Building real technical proof, not just saying I’m passionate.</h1>
+        <p class="lead">
+          I’m Jorden Plaines — an IT and cybersecurity-focused builder documenting labs, systems, and projects that show how I think, troubleshoot, and keep learning. I’m currently sharpening my foundation with Security+ prep, infrastructure projects, and practical security work.
+        </p>
+        <div class="hero-actions">
+          <a href="projects.html" class="button">View Projects</a>
+          <a href="resume.html" class="button button-secondary">See Resume</a>
+          <a href="contact.html" class="button button-secondary">Get in Touch</a>
+        </div>
+      </section>
+
+      <aside class="hero-panel">
+        <div>
+          <p class="kicker">Current Focus</p>
+          <ul class="hero-points">
+            <li>Building hands-on cybersecurity and infrastructure projects</li>
+            <li>Preparing for Security+ with a practical, lab-first approach</li>
+            <li>Positioning for IT support / cybersecurity analyst opportunities</li>
+            <li>Using documentation and execution as proof of work</li>
+          </ul>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-value">1+</span>
+            <span class="stat-label">Documented lab project live on the site</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">AD</span>
+            <span class="stat-label">Hands-on Windows Server & client lab work</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">Sec+</span>
+            <span class="stat-label">Certification path actively in progress</span>
+          </div>
+        </div>
+      </aside>
     </div>
   </header>
 
-  <main>
-    <section class="pt-section about-section-simple">
-      <div class="pt-container about-container-centered">
-        <div class="card about-card-simple">
-          <h2 class="about-title">About Me</h2>
+  <main class="container">
+    <section class="section-block section-card">
+      <p class="kicker">What I’m About</p>
+      <h2>Learning by building, documenting, and troubleshooting</h2>
+      <p class="section-intro">
+        I’m focused on growing into cybersecurity through practical work: infrastructure labs, security fundamentals, troubleshooting, and clean documentation. I care about understanding how systems actually work — not just collecting terms and hoping nobody asks follow-up questions.
+      </p>
+    </section>
+
+    <section class="section-block card-grid">
+      <article class="content-card">
+        <h3>Infrastructure & Labs</h3>
+        <p>Building Windows Server, Active Directory, and client environments to strengthen core IT and security fundamentals.</p>
+      </article>
+      <article class="content-card">
+        <h3>Security Growth</h3>
+        <p>Working through Security+ with an emphasis on retention, application, and turning theory into repeatable practice.</p>
+      </article>
+      <article class="content-card">
+        <h3>Execution Mindset</h3>
+        <p>I’m using projects as receipts — proof that I can learn, build, document, and keep improving without hiding behind buzzwords.</p>
+      </article>
+    </section>
+
+    <section class="section-block">
+      <div class="project-grid">
+        <article class="project-card featured">
+          <p class="kicker">Featured Project</p>
+          <h3>Active Directory Home Lab</h3>
           <p>
-            I'm Jorden, and I'm breaking into cybersecurity by doing the work—building real environments, testing ideas, and learning through hands-on practice. I'm focused on developing practical skills that translate into real security impact, whether that's understanding systems, improving workflows, or creating better ways to document and automate what I learn.
+            A hands-on Windows Server and Windows 11 lab focused on domain setup, user management, and foundational enterprise-style administration. This project documents the build process, what was configured, and what I learned from doing the work instead of just reading about it.
           </p>
+          <div class="project-meta">
+            <span class="tag">Windows Server</span>
+            <span class="tag">Active Directory</span>
+            <span class="tag">Networking</span>
+            <span class="tag">Documentation</span>
+          </div>
+          <div class="hero-actions">
+            <a href="ad-lab.html" class="button">Explore the Lab</a>
+            <a href="projects.html" class="button button-secondary">View All Projects</a>
+          </div>
+        </article>
+
+        <article class="project-card empty-state">
+          <p class="kicker">Next Up</p>
+          <h3>More projects are on deck</h3>
           <p>
-            I'm especially interested in how cybersecurity and AI connect, from smarter defenses to more efficient documentation and analysis. Plaines Tech is where I share my progress, publish what I'm learning, and build the foundation of my career one project at a time. This site represents both my personal journey and the early stages of a security-focused brand I'm growing for the future.
+            I’m actively expanding this portfolio with more IT, cybersecurity, and automation work. The goal is simple: fewer placeholders, more proof.
           </p>
-        </div>
+          <ul class="quick-list">
+            <li>Additional security / infrastructure projects</li>
+            <li>Stronger technical writeups and postmortems</li>
+            <li>Cleaner case-study style presentation</li>
+          </ul>
+        </article>
       </div>
     </section>
 
-    <section class="pt-section">
-      <div class="pt-container">
-        <h2 class="section-title" style="text-align: center; margin-bottom: 1rem; color: #f9fafb;">What you'll find here</h2>
-        <div class="pt-grid two">
-          <div class="card">
-            <h3>Career & Projects</h3>
-            <p>
-              This site is my home base for documenting what I'm learning in security and tech. You'll find write-ups, security projects, and experiments that show how I approach problems, learn new tools, and grow my skills over time.
-            </p>
-            <div style="margin-top: 1rem;">
-              <a href="projects.html" class="btn btn-primary">View Projects & Labs</a>
-            </div>
-          </div>
-          <div class="card">
-            <h3>Plaines Tech as a Brand</h3>
-            <p>
-              Plaines Tech is the name I'm building around that work—my LLC and future security brand. Here I'm shaping early service ideas, AI experiments, and practical security workflows that can grow into something bigger over time.
-            </p>
-            <div style="margin-top: 1rem;">
-              <a href="services.html" class="btn btn-primary">View Services</a>
-            </div>
-          </div>
-        </div>
+    <section class="section-block">
+      <div class="timeline">
+        <article class="timeline-card">
+          <p class="kicker">Now</p>
+          <h3>Security+ + portfolio strengthening</h3>
+          <p>Building consistency in study and using projects to create visible, credible evidence of technical growth.</p>
+        </article>
+        <article class="timeline-card">
+          <p class="kicker">Target</p>
+          <h3>IT support / cybersecurity analyst path</h3>
+          <p>Positioning for roles where troubleshooting, systems thinking, and security fundamentals actually matter.</p>
+        </article>
+        <article class="timeline-card">
+          <p class="kicker">Approach</p>
+          <h3>Real work over resume theater</h3>
+          <p>Labs, writeups, and practical outputs beat generic “motivated self-starter” fluff every time.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block cta-card">
+      <p class="kicker">Want the quick version?</p>
+      <h2>See the work, check the resume, then let’s talk.</h2>
+      <p class="section-intro">
+        If you want a cleaner summary of my background, experience, and direction, the resume is there. If you want the better signal, start with the projects.
+      </p>
+      <div class="hero-actions">
+        <a href="resume.html" class="button">Open Resume</a>
+        <a href="contact.html" class="button button-secondary">Contact Me</a>
       </div>
     </section>
   </main>
+
+  <footer class="footer">
+    <p>Jorden Plaines · Cybersecurity & IT Portfolio</p>
+  </footer>
+
   <script src="nav.js"></script>
-  <script src="glow.js"></script>
-  
-  <script>
-    // Back to Top Button functionality
-    const backToTopBtn = document.getElementById('backToTop');
-    
-    window.addEventListener('scroll', function() {
-      if (window.pageYOffset > 300) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
-      }
-    });
-    
-    backToTopBtn.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  </script>
 </body>
 </html>
