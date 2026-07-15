@@ -1,0 +1,7 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/15ika4zy8_z34.js"],""]
+3:I[97367,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+:HL["/_next/static/chunks/0~rtjcz~x.k4e.css","style"]
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main-content","className":"not-found-module__sxuMuG__page","children":["$","div",null,{"className":"not-found-module__sxuMuG__card","children":[["$","p",null,{"className":"not-found-module__sxuMuG__code","children":"404 / NOT FOUND"}],["$","h1",null,{"children":"That path ends here."}],["$","p",null,{"children":"The page may have moved, but the portfolio and selected work are still available from the homepage."}],["$","$L2",null,{"href":"/","children":["Return home ",["$","span",null,{"aria-hidden":"true","children":"→"}]]}]]}]}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0~rtjcz~x.k4e.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/15ika4zy8_z34.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"S5x39mmDmuhWpMYKP6qpv"}
+5:null
